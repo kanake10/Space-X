@@ -1,0 +1,11 @@
+query Launches {
+    launches {
+        mission_name
+        links {
+            mission_patch
+        }
+        launch_site {
+            site_name
+        }
+    }
+}
