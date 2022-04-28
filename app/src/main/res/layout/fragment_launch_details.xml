@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="launchDetails"
+            type="com.example.spacex.LaunchDetailsQuery.Launch" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.fragments.LaunchDetailsFragment"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/LaunchImage"
+                android:scaleType="fitXY"
+                android:layout_marginStart="50dp"
+                android:padding="8dp"
+                android:layout_width="290dp"
+                android:layout_height="200dp"
+                app:imageUrl="@{launchDetails.links.mission_patch}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/siteName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{`SiteName: ` + launchDetails.launch_site.site_name}"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:contentDescription="site Name"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
+
+            <TextView
+                android:id="@+id/missionName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@{`MissionName: ` +launchDetails.mission_name}"
+                android:contentDescription="Mission Name"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/siteName" />
+
+            <TextView
+                android:id="@+id/launchYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@{`LaunchYear: ` +launchDetails.launch_year}"
+                android:contentDescription="Mission Name"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/missionName" />
+            <TextView
+                android:id="@+id/detailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details About the Launch"
+                android:textStyle="italic"
+                android:textSize="20dp"
+                android:textColor="#0000FF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailsTitle"/>
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@{launchDetails.details}"
+                android:contentDescription="Details Concerning the Launch"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detailsTitle" />
+
+            <ProgressBar
+                android:id="@+id/launches_fetch_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/launches_empty_text"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Error!!"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/launches_fetch_progress"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
