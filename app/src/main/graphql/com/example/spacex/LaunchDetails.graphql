@@ -1,0 +1,14 @@
+query LaunchDetails($launchId: ID!) {
+    launch(id: $launchId) {
+        id
+        launch_year
+        launch_site {
+            site_name
+        }
+        links {
+            mission_patch
+        }
+        mission_name
+        details
+    }
+}
