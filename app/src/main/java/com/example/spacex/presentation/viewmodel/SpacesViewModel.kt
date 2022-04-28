@@ -7,6 +7,7 @@ import com.apollographql.apollo.api.Response
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
 import com.apollographql.apollo.exception.ApolloException
+import com.example.spacex.LaunchDetailsQuery
 import com.example.spacex.LaunchesQuery
 import com.example.spacex.core.Resource
 import com.example.spacex.data.repository.SpaceRepository
@@ -24,6 +25,10 @@ class SpacesViewModel @Inject constructor(
     val launches: LiveData<Resource<Response<LaunchesQuery.Data>>>
         get() = _launches
 
+    private val _launchDetails by lazy { MutableLiveData<Resource<Response<LaunchDetailsQuery.Launch>>>() }
+    val launchDetails: MutableLiveData<Resource<Response<LaunchDetailsQuery.Launch>>>
+        get() = _launchDetails
+
     fun queryLaunches() = viewModelScope.launch{
         _launches.postValue(Resource.Loading())
         try {
@@ -31,6 +36,16 @@ class SpacesViewModel @Inject constructor(
             _launches.postValue(Resource.Success(response))
         } catch (e: ApolloException) {
             _launches.postValue(Resource.Error("Error fetching data"))
+        }
+    }
+
+    fun queryLaunchDetails(id: String) = viewModelScope.launch {
+        _launchDetails.postValue(Resource.Loading())
+        try {
+            val response = repository.queryLaunchDetails(id)
+            _launchDetails.postValue(Resource.Success(response))
+        } catch (e: ApolloException) {
+            _launchDetails.postValue(Resource.Error("Error fetching data"))
         }
     }
 
