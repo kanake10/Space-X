@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -30,26 +31,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvSource"
+                android:id="@+id/siteName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{launches.mission_name}"
+                android:text="@{launches.launch_site.site_name}"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:contentDescription="site Name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LaunchImage" />
+                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
 
             <TextView
-                android:id="@+id/tvPublishedAt"
+                android:id="@+id/missionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{launches.launch_site.site_name}"
-                android:contentDescription="site Name"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@{launches.mission_name}"
+                android:contentDescription="Mission Name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSource" />
+                app:layout_constraintTop_toBottomOf="@+id/siteName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
