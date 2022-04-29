@@ -14,18 +14,18 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp">
+        android:layout_margin="@dimen/lMargin"
+        app:cardCornerRadius="@dimen/radius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="@dimen/padding">
 
             <ImageView
                 android:id="@+id/LaunchImage"
-                android:layout_width="160dp"
-                android:layout_height="90dp"
+                android:layout_width="@dimen/launch_width"
+                android:layout_height="@dimen/launch_height"
                 app:imageUrl="@{launches.links.mission_patch}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,11 +34,11 @@
                 android:id="@+id/siteName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin"
                 android:text="@{launches.launch_site.site_name}"
-                android:textSize="15dp"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:contentDescription="site Name"
+                android:contentDescription="@string/site_name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
@@ -47,11 +47,11 @@
                 android:id="@+id/missionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="15dp"
+                android:layout_marginTop="@dimen/lMargin"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 android:text="@{launches.mission_name}"
-                android:contentDescription="Mission Name"
+                android:contentDescription="@string/mission_name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/siteName" />

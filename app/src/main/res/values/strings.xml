@@ -2,4 +2,6 @@
     <string name="app_name">SpaceX</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mission_name">Mission Name</string>
+    <string name="site_name">site Name</string>
 </resources>

@@ -4,18 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="launchDetails"
             type="com.example.spacex.LaunchDetailsQuery.Launch" />
-
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp">
+        android:layout_margin="@dimen/radius"
+        app:cardCornerRadius="@dimen/radius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,9 +25,9 @@
                 android:id="@+id/LaunchImage"
                 android:scaleType="fitXY"
                 android:layout_marginStart="50dp"
-                android:padding="8dp"
-                android:layout_width="290dp"
-                android:layout_height="200dp"
+                android:padding="@dimen/radius"
+                android:layout_width="@dimen/width"
+                android:layout_height="@dimen/height"
                 app:imageUrl="@{launchDetails.links.mission_patch}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@{`SiteName: ` + launchDetails.launch_site.site_name}"
-                android:textSize="15dp"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 android:contentDescription="site Name"
                 android:textColor="@android:color/black"
@@ -51,8 +49,8 @@
                 android:id="@+id/missionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="15dp"
+                android:layout_marginTop="@dimen/radius"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 android:text="@{`MissionName: ` +launchDetails.mission_name}"
                 android:contentDescription="Mission Name"
@@ -64,8 +62,8 @@
                 android:id="@+id/launchYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="15dp"
+                android:layout_marginTop="@dimen/radius"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 android:text="@{`LaunchYear: ` +launchDetails.launch_year}"
                 android:contentDescription="Mission Name"
@@ -78,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="Details About the Launch"
                 android:textStyle="italic"
-                android:textSize="20dp"
+                android:textSize="@dimen/sizeTwo"
                 android:textColor="#0000FF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/detailsTitle"/>
@@ -87,8 +85,8 @@
                 android:id="@+id/details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="15dp"
+                android:layout_marginTop="@dimen/radius"
+                android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 android:text="@{launchDetails.details}"
                 android:contentDescription="Details Concerning the Launch"

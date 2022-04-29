@@ -2,6 +2,7 @@ package com.example.spacex.data.api
 
 import android.os.Looper
 import com.apollographql.apollo.ApolloClient
+import com.example.spacex.core.Constants.SERVER_URL
 import okhttp3.OkHttpClient
 
 class SpaceXApi {
@@ -13,7 +14,7 @@ class SpaceXApi {
 
         val okHttpClient = OkHttpClient.Builder().build()
         return ApolloClient.builder()
-            .serverUrl("https://api.spacex.land/graphql/")
+            .serverUrl(SERVER_URL)
             .okHttpClient(okHttpClient)
             .build()
     }
