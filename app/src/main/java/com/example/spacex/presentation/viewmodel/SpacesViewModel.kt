@@ -39,15 +39,15 @@ class SpacesViewModel @Inject constructor(
         }
     }
 
-    fun queryLaunchDetails(id: String) = viewModelScope.launch {
-        _launchDetails.postValue(Resource.Loading())
-        try {
-            val response = repository.queryLaunchDetails(id)
-            _launchDetails.postValue(Resource.Success(response))
-        } catch (e: ApolloException) {
-            _launchDetails.postValue(Resource.Error("Error fetching data"))
-        }
-    }
+//    fun queryLaunchDetails(id: String) = viewModelScope.launch {
+//        _launchDetails.postValue(Resource.Loading())
+//        try {
+//            val response = repository.queryLaunchDetails(id)
+//            _launchDetails.postValue(Resource.Success(response))
+//        } catch (e: ApolloException) {
+//            _launchDetails.postValue(Resource.Error("Error fetching data"))
+//        }
+//    }
 
 
 }
