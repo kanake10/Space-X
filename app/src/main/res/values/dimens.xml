@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="fragWidth">0dp</dimen>
+    <dimen name="radius">8dp</dimen>
+    <dimen name="height">200dp</dimen>
+    <dimen name="width">290dp</dimen>
+    <dimen name="txtSize">15sp</dimen>
+    <dimen name="sizeTwo">20sp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="lMargin">8dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="launch_width">160dp</dimen>
+    <dimen name="launch_height">90dp</dimen>
+</resources>
