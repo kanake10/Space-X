@@ -25,8 +25,8 @@ class SpacesViewModel @Inject constructor(
     val launches: LiveData<Resource<Response<LaunchesQuery.Data>>>
         get() = _launches
 
-    private val _launchDetails by lazy { MutableLiveData<Resource<Response<LaunchDetailsQuery.Launch>>>() }
-    val launchDetails: MutableLiveData<Resource<Response<LaunchDetailsQuery.Launch>>>
+    private val _launchDetails by lazy { MutableLiveData<Resource<Response<LaunchDetailsQuery.Data>>>() }
+    val launchDetails: LiveData<Resource<Response<LaunchDetailsQuery.Data>>>
         get() = _launchDetails
 
     fun queryLaunches() = viewModelScope.launch{
@@ -39,15 +39,15 @@ class SpacesViewModel @Inject constructor(
         }
     }
 
-//    fun queryLaunchDetails(id: String) = viewModelScope.launch {
-//        _launchDetails.postValue(Resource.Loading())
-//        try {
-//            val response = repository.queryLaunchDetails(id)
-//            _launchDetails.postValue(Resource.Success(response))
-//        } catch (e: ApolloException) {
-//            _launchDetails.postValue(Resource.Error("Error fetching data"))
-//        }
-//    }
+    fun queryLaunchDetails(id: String) = viewModelScope.launch {
+        _launchDetails.postValue(Resource.Loading())
+        try {
+            val response = repository.queryLaunchDetails(id)
+            _launchDetails.postValue(Resource.Success(response))
+        } catch (e: ApolloException) {
+            _launchDetails.postValue(Resource.Error("Error fetching data"))
+        }
+    }
 
 
 }

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.spacex.R
+import coil.annotation.ExperimentalCoilApi
 import com.example.spacex.core.Resource
 import com.example.spacex.databinding.FragmentLaunchDetailsBinding
 import com.example.spacex.presentation.viewmodel.SpacesViewModel
@@ -20,6 +20,7 @@ class LaunchDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentLaunchDetailsBinding
     private val args: LaunchDetailsFragmentArgs by navArgs()
+
     private val viewModel by viewModels<SpacesViewModel>()
 
 
@@ -33,8 +34,8 @@ class LaunchDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-      //  viewModel.queryLaunchDetails(args.id)
+        val launchId = args.id
+       viewModel.queryLaunchDetails(launchId)
         observeLiveData()
     }
 
@@ -42,15 +43,16 @@ class LaunchDetailsFragment : Fragment() {
         viewModel.launchDetails.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Loading -> {
+
                     binding.launchesFetchProgress.visibility = View.VISIBLE
                     binding.launchesEmptyText.visibility = View.GONE
                 }
                 is Resource.Success -> {
-                    if (response.value?.data == null) {
+                    if (response.value?.data?.launch == null) {
                         binding.launchesFetchProgress.visibility = View.GONE
                         binding.launchesEmptyText.visibility = View.VISIBLE
                     } else {
-                        binding.launchDetails = response.value.data
+                        binding.launchDetails = response.value?.data
                         binding.launchesFetchProgress.visibility = View.GONE
                         binding.launchesEmptyText.visibility = View.GONE
                     }

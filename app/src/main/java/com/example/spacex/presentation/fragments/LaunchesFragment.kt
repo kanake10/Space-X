@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.spacex.R
 import androidx.navigation.fragment.findNavController
+import com.example.spacex.LaunchesQuery
 import com.example.spacex.core.Resource
 import com.example.spacex.databinding.FragmentLaunchesBinding
 import com.example.spacex.presentation.adapter.SpaceAdapter
@@ -39,18 +40,17 @@ class LaunchesFragment : Fragment() {
         viewModel.queryLaunches()
         observeLiveData()
 
-        spaceAdapter.onItemClicked = { launches ->
-            launches.let {
-                if (!launches.mission_name.isNullOrBlank()) {
-                    findNavController().navigate(
-                        LaunchesFragmentDirections.actionLaunchesFragmentToLaunchDetailsFragment(
-                            id = launches.mission_name
-                        )
-                    )
-                }
-            }
-        }
-
+  spaceAdapter.onItemClicked = { launch ->
+      launch.let {
+          if (!launch.mission_name.isNullOrBlank()) {
+              findNavController().navigate(
+                  LaunchesFragmentDirections.actionLaunchesFragmentToLaunchDetailsFragment(
+                      id = launch.mission_name
+                  )
+              )
+          }
+      }
+  }
     }
 
     private fun observeLiveData() {

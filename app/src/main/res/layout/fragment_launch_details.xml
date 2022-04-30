@@ -6,7 +6,7 @@
     <data>
         <variable
             name="launchDetails"
-            type="com.example.spacex.LaunchDetailsQuery.Launch" />
+            type="com.example.spacex.LaunchDetailsQuery.Data" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".presentation.fragments.LaunchDetailsFragment"
-            android:padding="8dp">
+            android:padding="@dimen/padding">
 
             <ImageView
                 android:id="@+id/LaunchImage"
@@ -28,22 +28,36 @@
                 android:padding="@dimen/radius"
                 android:layout_width="@dimen/width"
                 android:layout_height="@dimen/height"
-                app:imageUrl="@{launchDetails.links.mission_patch}"
+                app:imageUrl="@{launchDetails.launch.links.mission_patch}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/image_of_specific_launch" />
+
+            <TextView
+                android:id="@+id/launchId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{`ID: ` + launchDetails.launch.id}"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                android:contentDescription="@string/launch_id"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
 
             <TextView
                 android:id="@+id/siteName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{`SiteName: ` + launchDetails.launch_site.site_name}"
+                android:text="@{`SiteName: ` + launchDetails.launch.launch_site}"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:contentDescription="site Name"
+                android:contentDescription="@string/site_name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
+                app:layout_constraintTop_toBottomOf="@id/launchId" />
 
             <TextView
                 android:id="@+id/missionName"
@@ -52,8 +66,8 @@
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:text="@{`MissionName: ` +launchDetails.mission_name}"
-                android:contentDescription="Mission Name"
+                android:text="@{`MissionName: ` +launchDetails.launch.mission_name}"
+                android:contentDescription="@string/mission_name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/siteName" />
@@ -65,8 +79,8 @@
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:text="@{`LaunchYear: ` +launchDetails.launch_year}"
-                android:contentDescription="Mission Name"
+                android:text="@{`LaunchYear: ` +launchDetails.launch.launch_year}"
+                android:contentDescription="@string/launch_year"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/missionName" />
@@ -74,7 +88,7 @@
                 android:id="@+id/detailsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Details About the Launch"
+                android:text="@string/details_about_the_launch"
                 android:textStyle="italic"
                 android:textSize="@dimen/sizeTwo"
                 android:textColor="#0000FF"
@@ -88,8 +102,8 @@
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:text="@{launchDetails.details}"
-                android:contentDescription="Details Concerning the Launch"
+                android:text="@{launchDetails.launch.details}"
+                android:contentDescription="@string/details_concerning_the_launch"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detailsTitle" />
@@ -108,7 +122,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Error!!"
+                android:text="@string/error"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

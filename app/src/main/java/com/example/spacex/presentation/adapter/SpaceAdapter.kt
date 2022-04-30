@@ -56,10 +56,6 @@ class CharacterDiffUtil : DiffUtil.ItemCallback<LaunchesQuery.Launch>() {
     ): Boolean {
         return oldItem == newItem
     }
+    
 
-}
-
-@BindingAdapter("imageUrl")
-fun setImageUrl(imageView: ImageView, url: String?) {
-    imageView.load(url) { crossfade(true) }
 }

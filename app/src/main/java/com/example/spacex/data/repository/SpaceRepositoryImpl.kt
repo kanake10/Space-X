@@ -16,6 +16,7 @@ class SpaceRepositoryImpl @Inject constructor(
 
     override suspend fun queryLaunchDetails(id: String): Response<LaunchDetailsQuery.Data> {
         return webService.getApolloClient().query(LaunchDetailsQuery(id)).await()
-
     }
+
+
 }
