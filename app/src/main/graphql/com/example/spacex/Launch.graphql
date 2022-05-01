@@ -1,6 +1,7 @@
-query LaunchDetails($launchId: ID!) {
+query Launch($launchId: ID!) {
     launch(id: $launchId) {
         id
+        details
         launch_year
         launch_site {
             site_name
@@ -9,6 +10,5 @@ query LaunchDetails($launchId: ID!) {
             mission_patch
         }
         mission_name
-        details
     }
 }
