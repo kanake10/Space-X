@@ -8,5 +8,6 @@
     <string name="details_concerning_the_launch">Details Concerning the Launch</string>
     <string name="image_of_specific_launch">Image of specific launch</string>
     <string name="launch_id">launch id</string>
+    <string name="under_construction">Work In Progress</string>
 
 </resources>

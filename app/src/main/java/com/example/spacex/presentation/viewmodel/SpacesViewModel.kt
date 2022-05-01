@@ -7,9 +7,10 @@ import com.apollographql.apollo.api.Response
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LiveData
 import com.apollographql.apollo.exception.ApolloException
-import com.example.spacex.LaunchDetailsQuery
+import com.example.spacex.LaunchQuery
 import com.example.spacex.LaunchesQuery
 import com.example.spacex.core.Resource
+import com.example.spacex.core.Resource.*
 import com.example.spacex.data.repository.SpaceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -25,27 +26,27 @@ class SpacesViewModel @Inject constructor(
     val launches: LiveData<Resource<Response<LaunchesQuery.Data>>>
         get() = _launches
 
-    private val _launchDetails by lazy { MutableLiveData<Resource<Response<LaunchDetailsQuery.Data>>>() }
-    val launchDetails: LiveData<Resource<Response<LaunchDetailsQuery.Data>>>
+    private val _launchDetails by lazy { MutableLiveData<Resource<Response<LaunchQuery.Data>>>() }
+    val launchDetails: LiveData<Resource<Response<LaunchQuery.Data>>>
         get() = _launchDetails
 
     fun queryLaunches() = viewModelScope.launch{
-        _launches.postValue(Resource.Loading())
+        _launches.postValue(Loading())
         try {
             val response = repository.queryLaunches()
-            _launches.postValue(Resource.Success(response))
+            _launches.postValue(Success(response))
         } catch (e: ApolloException) {
-            _launches.postValue(Resource.Error("Error fetching data"))
+            _launches.postValue(Error("Error fetching data"))
         }
     }
 
     fun queryLaunchDetails(id: String) = viewModelScope.launch {
-        _launchDetails.postValue(Resource.Loading())
+        _launchDetails.postValue(Loading())
         try {
             val response = repository.queryLaunchDetails(id)
-            _launchDetails.postValue(Resource.Success(response))
+            _launchDetails.postValue(Success(response))
         } catch (e: ApolloException) {
-            _launchDetails.postValue(Resource.Error("Error fetching data"))
+            _launchDetails.postValue(Error("Error fetching data"))
         }
     }
 
