@@ -23,12 +23,6 @@ class LaunchDetailsFragment : Fragment() {
 
     private val viewModel by viewModels<SpacesViewModel>()
 
-    override fun onResume() {
-        super.onResume()
-        binding.underConstructionAnimation.playAnimation()
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,13 +43,13 @@ class LaunchDetailsFragment : Fragment() {
             when (response) {
                 is Resource.Loading -> {
 
-                   // binding.launchesFetchProgress.visibility = View.VISIBLE
-                   // binding.launchesEmptyText.visibility = View.GONE
+                    binding.launchesFetchProgress.visibility = View.VISIBLE
+                    binding.launchesEmptyText.visibility = View.GONE
                 }
                 is Resource.Success -> {
                     if (response.value?.data?.launch == null) {
                         binding.launchesFetchProgress.visibility = View.GONE
-                      //  binding.launchesEmptyText.visibility = View.VISIBLE
+                       binding.launchesEmptyText.visibility = View.VISIBLE
                     } else {
                         binding.launchDetails = response.value.data
                         binding.launchesFetchProgress.visibility = View.GONE
@@ -64,7 +58,7 @@ class LaunchDetailsFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     binding.launchesFetchProgress.visibility = View.GONE
-                   // binding.launchesEmptyText.visibility = View.VISIBLE
+                   binding.launchesEmptyText.visibility = View.VISIBLE
                 }
             }
         }

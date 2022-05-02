@@ -42,10 +42,10 @@ class LaunchesFragment : Fragment() {
 
   spaceAdapter.onItemClicked = { launch ->
       launch.let {
-          if (!launch.mission_name.isNullOrBlank()) {
+          if (!launch.id.isNullOrBlank()) {
               findNavController().navigate(
                   LaunchesFragmentDirections.actionLaunchesFragmentToLaunchDetailsFragment(
-                      id = launch.mission_name
+                      id = launch.id
                   )
               )
           }

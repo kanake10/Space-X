@@ -11,37 +11,16 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/radius"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
         app:cardCornerRadius="@dimen/radius">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
             tools:context=".presentation.fragments.LaunchDetailsFragment"
             >
-
-<!--            <TextView-->
-<!--                android:id="@+id/underConstructionTextView"-->
-<!--                android:text="@string/under_construction"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="10sp"-->
-<!--                android:paddingTop="10dp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"/>-->
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/underConstructionAnimation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/wip"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"
-                />
 
 
             <ImageView
@@ -49,40 +28,27 @@
                 android:scaleType="fitXY"
                 android:layout_marginStart="50dp"
                 android:padding="@dimen/radius"
-                android:layout_width="@dimen/width"
-                android:layout_height="@dimen/height"
+                android:layout_width="210dp"
+                android:layout_height="260dp"
+                android:paddingTop="8dp"
                 app:imageUrl="@{launchDetails.launch.links.mission_patch}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/image_of_specific_launch" />
 
-            <TextView
-                android:id="@+id/launchId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@{`ID: ` + launchDetails.launch.id}"
-                android:textSize="@dimen/txtSize"
-                android:textStyle="bold"
-                android:visibility="gone"
-                android:contentDescription="@string/launch_id"
-                android:textColor="@android:color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
 
             <TextView
                 android:id="@+id/siteName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{`SiteName: ` + launchDetails.launch.launch_site}"
+                android:text="@{`SiteName: ` + launchDetails.launch.launch_site.site_name}"
                 android:textSize="@dimen/txtSize"
-                android:visibility="gone"
                 android:textStyle="bold"
                 android:contentDescription="@string/site_name"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/launchId" />
+                app:layout_constraintTop_toBottomOf="@id/LaunchImage" />
 
             <TextView
                 android:id="@+id/missionName"
@@ -90,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
-                android:visibility="gone"
                 android:textStyle="bold"
                 android:text="@{`MissionName: ` +launchDetails.launch.mission_name}"
                 android:contentDescription="@string/mission_name"
@@ -105,7 +70,6 @@
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:visibility="gone"
                 android:text="@{`LaunchYear: ` +launchDetails.launch.launch_year}"
                 android:contentDescription="@string/launch_year"
                 android:textColor="@android:color/black"
@@ -117,11 +81,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/details_about_the_launch"
                 android:textStyle="italic"
-                android:visibility="gone"
-                android:textSize="@dimen/sizeTwo"
+                android:paddingTop="4dp"
+                android:textSize="15sp"
                 android:textColor="#0000FF"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/detailsTitle"/>
+                app:layout_constraintTop_toBottomOf="@id/launchYear"/>
 
             <TextView
                 android:id="@+id/details"
@@ -130,7 +94,6 @@
                 android:layout_marginTop="@dimen/radius"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
-                android:visibility="gone"
                 android:text="@{launchDetails.launch.details}"
                 android:contentDescription="@string/details_concerning_the_launch"
                 android:textColor="@android:color/black"
@@ -141,7 +104,6 @@
                 android:id="@+id/launches_fetch_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,7 +115,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/error"
-                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/launches_fetch_progress"
