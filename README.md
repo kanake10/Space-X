@@ -57,9 +57,9 @@ The app queries(in this case [queries](https://github.com/kanake10/Space-X/tree/
 
 Launches | Launch | Launch Info
 --- | --- | ---
-<img src="https://github.com/kanake10/Space-X/blob/main/art/splash.jpeg" width="280"/> | <img src="https://github.com/kanake10/Space-X/blob/main/art/launches.jpeg" width="280"/> | <img src="https://github.com/kanake10/Space-X/blob/main/art/wip.jpeg" width="280"/>
+<img src="https://github.com/kanake10/Space-X/blob/main/art/splash.jpeg" width="280"/> | <img src="https://github.com/kanake10/Space-X/blob/main/art/launches.jpeg" width="280"/> | <img src="https://github.com/kanake10/Space-X/blob/main/art/launchinfo.jpeg" width="280"/>
 
-https://user-images.githubusercontent.com/77957614/166167982-4808d3bf-6a56-4b3f-aaf4-838de5397984.mp4
+<!--https://user-images.githubusercontent.com/77957614/166167982-4808d3bf-6a56-4b3f-aaf4-838de5397984.mp4-->
 
 ## WIP
 
