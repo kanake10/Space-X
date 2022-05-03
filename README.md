@@ -1,5 +1,5 @@
 # Space-X
-Space-X is an android application that displays the list of launches from the [Space-X API](https://rawg.io/) using [ApolloGraphql](https://www.apollographql.com/)inclusive of their launch site and mission name respectively.Built  entirely using kotlin among other [Android Architecture Compoonents](https://developer.android.com/topic/architecture)
+Space-X is an android application that displays the list of launches from the [Space-X API](https://rawg.io/) using [ApolloGraphql](https://www.apollographql.com/) inclusive of their launch site and mission name respectively.Built  entirely using kotlin among other [Android Architecture Compoonents](https://developer.android.com/topic/architecture)
 
 ## queries used.
 The app queries(in this case [queries](https://github.com/kanake10/Space-X/tree/main/app/src/main/graphql/com/example/spacex/) are used to read or fetch values while a mutation is used to write or post values returning a response in json format.The [sampledata](https://github.com/kanake10/Space-X/tree/main/app/sampledata/) directory too indicates the sample response.
@@ -63,7 +63,6 @@ Launches | Launch | Launch Info
 
 ## WIP
 
-* Work on the launch info fragment,
 * migrate project to kotlin dsl.already started a branch on that (buildSrc branch)
 
 ## License
